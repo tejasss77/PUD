@@ -1,17 +1,45 @@
 # PhishGuard — Phishing URL Detection
 
+<p align="center">
+  <img src="assets/banner.svg" alt="PhishGuard banner" width="100%" />
+</p>
+
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#architecture">Architecture</a> •
+  <a href="#quickstart">Quickstart</a> •
+  <a href="#api">API</a> •
+  <a href="#ml-service">ML Service</a> •
+  <a href="#screenshots">Screenshots</a>
+</p>
+
 PhishGuard is a full‑stack phishing URL detection app with a React frontend, Node/Express backend, and a Python ML service that classifies URLs as **PHISHING** or **SAFE**.
 
+---
+
+## Features
+- 🔎 Classify a URL as **SAFE** or **PHISHING**
+- ⚡ FastAPI ML microservice (feature extraction + model inference)
+- 🧩 Node/Express API (orchestrates requests + persistence)
+- 🎛️ React (Vite) UI
+- 🧪 Optional model training scripts
+
+## Architecture
+
+<p align="center">
+  <img src="assets/architecture.svg" alt="PhishGuard architecture" width="900" />
+</p>
+
 ## Project Structure
-- client/ — React UI (Vite + Tailwind)
-- server/ — Node/Express API + persistence
-- ml-service/ — FastAPI ML service + feature extraction + model
+- `client/` — React UI (Vite + Tailwind)
+- `server/` — Node/Express API + persistence
+- `ml-service/` — FastAPI ML service + feature extraction + model
 
 ## Prerequisites
 - Node.js 18+
 - Python 3.10+
 
-## Setup
+## Quickstart
 
 ### 1) Backend API
 ```bash
@@ -38,10 +66,16 @@ npm run dev
 ```
 
 ## Notes
-- The frontend expects the backend at http://localhost:5001.
+- The frontend expects the backend at `http://localhost:5001`.
 - The backend calls the ML service at the URL defined by `ML_SERVICE_URL` in the server `.env`.
 
 ## Training (Optional)
 If you want to retrain the model, see:
-- ml-service/model/train.py
-- ml-service/data/fetch_datasets.py
+- `ml-service/model/train.py`
+- `ml-service/data/fetch_datasets.py`
+
+## Screenshots
+
+<p align="center">
+  <img src="assets/demo.svg" alt="Demo / result preview" width="900" />
+</p>
