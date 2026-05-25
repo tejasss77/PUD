@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560">
+  <defs>
+    <style>
+      .bg{fill:#0b1220;}
+      .panel{fill:#0f172a;stroke:#1f2937;stroke-width:2;}
+      .title{font:700 30px ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;fill:#e5e7eb;}
+      .h{font:700 18px ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;fill:#e5e7eb;}
+      .t{font:500 16px ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;fill:#cbd5e1;}
+      .mono{font:600 15px ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;fill:#cbd5e1;}
+      .muted{fill:#94a3b8;font:500 14px ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;}
+      .ok{fill:#22c55e;}
+      .bad{fill:#ef4444;}
+      .acc{stroke:#38bdf8;stroke-width:3;fill:none;}
+      .acc2{stroke:#22c55e;stroke-width:3;fill:none;}
+      .line{stroke:#334155;stroke-width:2;}
+      .chip{fill:#111827;stroke:#1f2937;stroke-width:2;}
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrow2" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#22c55e"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="560" rx="22"/>
+
+  <text x="60" y="70" class="title">PhishGuard Architecture</text>
+  <text x="60" y="102" class="muted">React UI → Node/Express API → FastAPI ML Service → Classification</text>
+
+  <!-- Client -->
+  <rect x="70" y="155" width="300" height="160" rx="16" class="panel"/>
+  <text x="95" y="195" class="h">Client</text>
+  <text x="95" y="223" class="t">React (Vite) + Tailwind</text>
+  <rect x="95" y="245" width="250" height="44" rx="12" class="chip"/>
+  <text x="112" y="273" class="mono">POST /api/classify</text>
+
+  <!-- Server -->
+  <rect x="450" y="140" width="320" height="220" rx="16" class="panel"/>
+  <text x="475" y="180" class="h">Server</text>
+  <text x="475" y="208" class="t">Node.js + Express</text>
+  <text x="475" y="235" class="muted">Validates URL • logs/persists</text>
+  <rect x="475" y="255" width="270" height="44" rx="12" class="chip"/>
+  <text x="492" y="283" class="mono">CALL ML_SERVICE_URL</text>
+
+  <!-- ML Service -->
+  <rect x="850" y="155" width="280" height="160" rx="16" class="panel"/>
+  <text x="875" y="195" class="h">ML Service</text>
+  <text x="875" y="223" class="t">FastAPI + Model</text>
+  <text x="875" y="250" class="muted">Feature extract • infer</text>
+
+  <!-- Response panel -->
+  <rect x="380" y="395" width="740" height="120" rx="16" class="panel"/>
+  <text x="410" y="435" class="h">Response</text>
+  <text x="410" y="463" class="t">label: SAFE | PHISHING • probability score</text>
+  <circle cx="420" cy="490" r="7" class="ok"/>
+  <text x="438" y="496" class="mono">SAFE</text>
+  <circle cx="540" cy="490" r="7" class="bad"/>
+  <text x="558" y="496" class="mono">PHISHING</text>
+  <text x="705" y="496" class="mono" fill="#9ca3af">score: 0.00 → 1.00</text>
+
+  <!-- Arrows -->
+  <line x1="370" y1="235" x2="450" y2="235" class="acc" marker-end="url(#arrow)"/>
+  <text x="384" y="220" class="muted">request</text>
+
+  <line x1="770" y1="235" x2="850" y2="235" class="acc2" marker-end="url(#arrow2)"/>
+  <text x="785" y="220" class="muted">features + infer</text>
+
+  <path d="M990 315 C990 360 940 370 860 395" class="acc" marker-end="url(#arrow)"/>
+  <path d="M610 360 C610 380 610 380 610 395" class="acc" marker-end="url(#arrow)"/>
+  <path d="M220 315 C220 370 320 380 410 395" class="acc" marker-end="url(#arrow)"/>
+
+  <!-- Tiny phishing cues -->
+  <g opacity="0.9">
+    <text x="95" y="310" class="muted">Examples: http://login‑verify…</text>
+    <text x="875" y="285" class="muted">Signals: length, entropy, tokens, TLD</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="60" y="535" class="muted">Minimal diagram (SVG) • edit freely in assets/architecture.svg</text>
+</svg>
